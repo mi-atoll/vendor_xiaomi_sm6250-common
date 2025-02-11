@@ -35,10 +35,8 @@ cc_prebuilt_library_shared {
                 "vendor.qti.hardware.display.mapper@2.0",
                 "vendor.qti.hardware.display.mapper@3.0",
                 "android.hardware.graphics.mapper@3.0",
-                "vendor.qti.hardware.display.mapperextensions@1.1",
-                "vendor.qti.hardware.display.mapper@4.0",
-                "android.hardware.graphics.mapper@4.0",
                 "android.hardware.graphics.mapper@2.0",
+                "vendor.qti.hardware.display.mapperextensions@1.1",
                 "libhidlbase",
                 "libutils",
                 "libdl",
@@ -61,10 +59,8 @@ cc_prebuilt_library_shared {
                 "vendor.qti.hardware.display.mapper@2.0",
                 "vendor.qti.hardware.display.mapper@3.0",
                 "android.hardware.graphics.mapper@3.0",
-                "vendor.qti.hardware.display.mapperextensions@1.1",
-                "vendor.qti.hardware.display.mapper@4.0",
-                "android.hardware.graphics.mapper@4.0",
                 "android.hardware.graphics.mapper@2.0",
+                "vendor.qti.hardware.display.mapperextensions@1.1",
                 "libhidlbase",
                 "libutils",
                 "libdl",
@@ -316,12 +312,12 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib/hw/vulkan.adreno.so",
             ],
             shared_libs: [
+                "libcutils",
+                "libz",
                 "libadreno_utils",
                 "libgsl",
-                "libz",
                 "liblog",
                 "libllvm-glnext",
-                "libcutils",
                 "libhardware",
                 "libnativewindow",
                 "vendor.qti.hardware.display.mapper@2.0",
@@ -342,12 +338,12 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/hw/vulkan.adreno.so",
             ],
             shared_libs: [
+                "libcutils",
+                "libz",
                 "libadreno_utils",
                 "libgsl",
-                "libz",
                 "liblog",
                 "libllvm-glnext",
-                "libcutils",
                 "libhardware",
                 "libnativewindow",
                 "vendor.qti.hardware.display.mapper@2.0",
@@ -600,6 +596,8 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libgsl",
+                "liblog",
+                "libnativewindow",
                 "libc++",
                 "libc",
                 "libm",
@@ -612,6 +610,8 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libgsl",
+                "liblog",
+                "libnativewindow",
                 "libc++",
                 "libc",
                 "libm",
@@ -930,6 +930,45 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libllvm-qcom.so",
             ],
             shared_libs: [
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libllvm-qgl",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libllvm-qgl.so",
+            ],
+            shared_libs: [
+                "libgsl",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libllvm-qgl.so",
+            ],
+            shared_libs: [
+                "libgsl",
+                "liblog",
                 "libc++",
                 "libc",
                 "libm",
